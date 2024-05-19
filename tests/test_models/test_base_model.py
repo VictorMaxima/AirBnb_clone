@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Contains the unittests for basemodel """
+""" Contains the unittests for basemodel class""
 import os
 import models
 import unittest

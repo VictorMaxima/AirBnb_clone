@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 class FileStorage():
     """ the general class for file storage
     Attributes: 
-    __file_path: file path
+    __file_path: file path to the storage file
     __objects: dictionary of objects
      """
 

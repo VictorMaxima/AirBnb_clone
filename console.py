@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """ 
-the console for the airbnb project
+the interpreter for the airbnb project
 """
 
 import cmd

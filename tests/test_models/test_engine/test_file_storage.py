@@ -9,7 +9,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 class Test_new(unittest.TestCase):
-    """contains teh unittests for the new method of FileStorage """
+    """contains teh unittests for the new() method of FileStorage """
     
     def test_new_works(self):
         a = BaseModel()

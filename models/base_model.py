@@ -30,7 +30,7 @@ class BaseModel():
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """ defines the save method for the class"""
+        """ defines the save method for the class BaseModel"""
         self.updated_at = datetime.datetime.today()
         models.storage.save()
 
