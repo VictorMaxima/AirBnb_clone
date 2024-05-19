@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """ 
 the interpreter for the airbnb project
 """
