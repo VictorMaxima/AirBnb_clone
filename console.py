@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """ 
 the console for the airbnb project
@@ -12,7 +12,7 @@ from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
-    """Defines the interpreter """
+    """Defines the interpreter for the project """
     def do_quit(self, arg):
         """quit command """
         return True
