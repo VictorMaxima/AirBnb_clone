@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ contains unittests for the File Storage class """
 
 import os
