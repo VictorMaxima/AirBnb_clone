@@ -4,6 +4,7 @@ import datetime
 import models
 import uuid
 
+
 class BaseModel():
     """ Defines the base model class """
 
@@ -17,16 +18,15 @@ class BaseModel():
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.datetime.strptime(value, _format)
+                    new = datetime.datetime.strptime(value, _format)
+                    self.__dict__[key] = new
                 else:
                     self.__dict__[key] = kwargs[key]
-        else: 
+        else:
             models.storage.new(self)
-            
-
 
     def __str__(self):
-        """ defines the string representation of the base class """       
+        """ defines the string representation of the base class """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
@@ -35,7 +35,7 @@ class BaseModel():
         models.storage.save()
 
     def to_dict(self):
-        """ returns a comprehensive dictionary representation of the instance """
+        """ returns dictionary representation of the instance """
         new_dict = self.__dict__.copy()
         new_dict['created_at'] = self.created_at.isoformat()
         new_dict['updated_at'] = self.created_at.isoformat()
