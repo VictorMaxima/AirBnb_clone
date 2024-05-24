@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 """ handles the file storage of the airbnb console """
 import json
-from .base_model import BaseModel
+from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
 
 
 class FileStorage():
@@ -27,7 +33,7 @@ class FileStorage():
         """ saves the objects through serialization """
         b = {k: v.to_dict() for k, v in FileStorage.__objects.items()}
         with open(FileStorage.__file_path, 'w') as file:
-            json.dump(object_dictionary, file)
+            json.dump(b, file)
 
     def reload(self):
         """ deserializes the json """
@@ -36,8 +42,8 @@ class FileStorage():
                 objects = json.load(f)
                 for key, object_rep in objects.items():
                     _class = object_rep['__class__']
-                    del objects['__class__']
-                    new = eval((_class)(**object_rep))
-                    self.new(eval)
+                    del object_rep['__class__']
+                    new = eval(_class)(**object_rep)
+                    self.new(new)
         except FileNotFoundError:
             return

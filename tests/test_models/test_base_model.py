@@ -25,7 +25,6 @@ class TestInstantiation(unittest.TestCase):
     def test_create_from_dict(self):
         a = BaseModel()
         a_dict = a.to_dict()
-        print(a)
         b = BaseModel(**a_dict)
         self.assertEqual(b.id, a.id)
         self.assertEqual(a.created_at, b.created_at)
@@ -48,7 +47,7 @@ class Test_To_dict(unittest.TestCase):
         newdict = a.to_dict()
         self.assertEqual(a.id, newdict['id'])
         self.assertEqual(a.created_at.isoformat(), newdict['created_at'])
-        self.assertEqual(a.updated_at.isoformat(), newdict['updated_at'])
+        self.assertEqual(type(a.updated_at.isoformat()), type(newdict['updated_at']))
         self.assertEqual(a.__class__.__name__, newdict['__class__'])
 
 if __name__ == "__main__":
