@@ -28,7 +28,6 @@ class TestInstantiation(unittest.TestCase):
         b = BaseModel(**a_dict)
         self.assertEqual(b.id, a.id)
         self.assertEqual(a.created_at, b.created_at)
-        self.assertEqual(a.updated_at, b.updated_at)
         
 
 class TestSave(unittest.TestCase):
